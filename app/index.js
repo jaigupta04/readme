@@ -1,66 +1,28 @@
 const express = require('express');
-const app     = express();
 const cors = require('cors');
 
-const Data = require('../data');
+const app = express();
 
+const Data = require('../data');
 
 
 app.use(express.json());
 app.use(cors());
 
+app.get('/test', async (req, res) => {
+  res.send('hi');
+})
 
 
 app.get('/', async (req, res) => {
 
-  res.send('Hello NodeJs !');
+  const { githubId, repoName, branchName, fileName } = req.query;
+
+  const resp = await Data.getReadme(githubId, repoName, branchName, fileName);
+
+  res.send(resp);
 
 });
-
-app.get('/_env', async (req, res) => {
-
-  res.send(process.env);
-  
-});
-
-app.get('/list', async(req, res) => {
-
-  const list = await Data.list();
-
-  res.send(list);
-
-});
-
-app.post('/add', async(req, res) => {
-
-  let data = req.body;
-
-  data = await Data.add(data);
-
-  res.send(data);
-
-});
-
-app.post('/update', async(req, res) => {
-
-  const { id, ...updates } = req.body;
-
-  await Data.update(id, updates);
-
-  res.send('Document updated successfully !');
-
-});
-
-app.post('/delete', async(req, res) => {
-
-  const { id } = req.body;
-
-  await Data.purge(id);
-
-  res.send('Document deleted successfully !');
-
-});
-
 
 
 module.exports = app;
