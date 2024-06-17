@@ -5,9 +5,13 @@ const app = express();
 
 const Data = require('../data');
 
+const corsOptions = {
+  origin: 'https://readme-gen.web.app',
+  optionsSuccessStatus: 200
+};
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.get('/add', async (req, res) => {
   res.send('hi');
