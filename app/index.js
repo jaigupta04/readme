@@ -9,7 +9,7 @@ const Data = require('../data');
 app.use(express.json());
 app.use(cors());
 
-app.get('/fet', async (req, res) => {
+app.get('/add', async (req, res) => {
   res.send('hi');
 })
 
