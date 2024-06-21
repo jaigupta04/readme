@@ -19,9 +19,8 @@ app.get('/add', async (req, res) => {
 
 app.get('/', async (req, res) => {
 
-  console.log('jaiiii')
-
   const { githubId, repoName, branchName, fileName } = req.query;
+  console.log(req.query)
 
   const resp = await Data.getReadme(githubId, repoName, branchName, fileName);
 
