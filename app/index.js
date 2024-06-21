@@ -6,7 +6,7 @@ const app = express();
 const Data = require('../data');
 
 const corsOptions = {
-  origin: 'http://localhost:1080',
+  origin: 'https://readme-gen.web.app',
 };
 
 app.use(express.json());
