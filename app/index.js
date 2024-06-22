@@ -28,11 +28,11 @@ app.get('/api/generate', async (req, res) => {
 
 });
 
-const port = process.env.PORT  || 8080;
+// const port = process.env.PORT  || 8080;
 
-app.listen(port, () => {
-  console.log(`Server is up and listening at ${process.env.PORT}`)
-});
+// app.listen(port, () => {
+//   console.log(`Server is up and listening at ${process.env.PORT}`)
+// });
 
 
-// module.exports = app;
+module.exports = app;
