@@ -28,5 +28,11 @@ app.get('/api/', async (req, res) => {
 
 });
 
+const port = process.env.PORT  || 8080;
 
-module.exports = app;
+app.listen(port, () => {
+  console.log(`Server is up and listening at ${process.env.PORT}`)
+});
+
+
+// module.exports = app;
