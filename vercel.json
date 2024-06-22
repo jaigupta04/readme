@@ -4,7 +4,7 @@
     {
       "src": "readme-vue/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "build" }
+      "config": { "distDir": "dist" }
     },
     {
       "src": "app/index.js",
