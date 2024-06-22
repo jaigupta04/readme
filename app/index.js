@@ -17,7 +17,7 @@ app.get('/add', async (req, res) => {
 })
 
 
-app.get('/api/', async (req, res) => {
+app.get('/api/generate', async (req, res) => {
 
   const { githubId, repoName, branchName, fileName } = req.query;
   console.log(req.query)
