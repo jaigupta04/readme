@@ -2,14 +2,20 @@
   "version": 2,
   "builds": [
     {
+      "src": "readme-vue/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "build" }
+    },
+    {
       "src": "app/index.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/app/(.*)",
       "dest": "/app/index.js"
-    }
+    },
+    { "src": "/(.*)", "dest": "/readme-vue/$1" }
   ]
 }
